@@ -1,0 +1,16 @@
+<h1>new wisdom</h1>
+<%= form_for :wisdom, url:wisdoms_path do |f| %>
+  <p>
+    <%= f.label :quote %><br>
+    <%= f.text_field :quote %>
+  </p>
+  <p>
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to "Back", wisdoms_path %>
