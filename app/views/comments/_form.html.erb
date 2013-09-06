@@ -1,0 +1,15 @@
+<%= form_for([@wisdom, @wisdom.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </p>
+  <p>
+    <%= f.submit :class=>"btn btn-success" %>
+  </p>
+<% end %>
+
+

@@ -1,0 +1,7 @@
+<blockquote>
+  <p><%= wisdom.quote %></p>
+  <small><%= wisdom.author %></small>
+  <emph class='timestamp'><%= link_to localize(wisdom.created_at, :format => :long), wisdom %></emph>
+  <%= link_to "edit", edit_wisdom_path(wisdom), :class=>"btn btn-default" %>
+  <%= link_to "x", wisdom_path(wisdom), method: :delete, data: { confirm: 'are yo0u sure' }, :class=>"close"%>
+</blockquote>

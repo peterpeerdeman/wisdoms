@@ -1,0 +1,23 @@
+<%= form_for @wisdom do |f| %>
+  <% if @wisdom.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@wisdom.errors.count, "error") %>:</h2>
+      <ul>
+      <% @wisdom.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :quote %><br>
+    <%= f.text_field :quote %>
+  </p>
+  <p>
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.submit :class=>"btn btn-success" %>
+  </p>
+<% end %>

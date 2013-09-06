@@ -4,10 +4,6 @@
 <%= link_to "New Wisdom", new_wisdom_path %>
 <section>
   <% @wisdoms.each do |wisdom| %>
-  <div class='wisdom'>
-    <blockquote class='quote'>"<%= wisdom.quote %>"</blockquote>
-    <emph class='author'>-<%= wisdom.author %></emph>
-    <time class='timestamp'><%= link_to wisdom.created_at, wisdom %></emph>
-  </div>
+  <%= render partial:'wisdom', object: wisdom %>
   <% end %>
 </section>

@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+@import "twitter/bootstrap";
+
+.container {
+  max-width:700px;
+}

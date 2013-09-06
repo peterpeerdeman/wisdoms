@@ -1,0 +1,6 @@
+<li>
+  <h4><%=comment.commenter%> said:</h4>
+  <p><%=comment.body%></p>
+  <small><%=localize(comment.created_at, :format => :long)%></small>
+  <%= link_to "x", [comment.wisdom, comment], method: :delete, data: {confirm:"are you sure?"}, :class=>"close" %></small>
+</li>

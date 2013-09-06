@@ -1,9 +1,14 @@
 Blog::Application.routes.draw do
-  get "welcome/index"
-  resources :wisdoms
+
+  resources :wisdoms do
+    resources :comments
+  end
+
   root 'wisdoms#index'
-  get '/wisdoms/:id' => 'wisdoms#show'
-  get '/wisdoms' => 'wisdoms#index'
+
+#  get '/wisdoms/:id' => 'wisdoms#show'
+#  get '/wisdoms' => 'wisdoms#index'
+#  delete '/wisdoms/:id' => 'widoms#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

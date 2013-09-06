@@ -1,4 +1,10 @@
-<article>
-  <blockquote><%= @wisdom.quote %></blockquote>
-  <p><%= @wisdom.author %></p>
-</article>
+<%= render partial:'wisdom', object: @wisdom %>
+<h3>comments</h3>
+<ul>
+  <%= render @wisdom.comments %>
+</ul>
+
+<h3>new comment</h3>
+<%= render "comments/form" %> 
+
+<%= link_to "Back to index", wisdoms_path %>
