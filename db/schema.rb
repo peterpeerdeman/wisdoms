@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130906130128) do
+ActiveRecord::Schema.define(version: 20130909164308) do
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20130906130128) do
   end
 
   add_index "comments", ["wisdom_id"], name: "index_comments_on_wisdom_id"
+
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "wisdoms", force: true do |t|
     t.text     "quote"
