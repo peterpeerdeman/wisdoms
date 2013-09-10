@@ -11,8 +11,26 @@
  *= require_self
  *= require_tree .
  */
+
+/* bootstrap overwrites */
+$font-size-base: 16px;
+
 @import "twitter/bootstrap";
 
 .container {
   max-width:700px;
+}
+
+.w-logo {
+  padding:0;
+  a {
+    img {
+      width: 100%;
+      margin: -40px 0;
+    }
+  }
+}
+
+h2 {
+  text-align:center;
 }
