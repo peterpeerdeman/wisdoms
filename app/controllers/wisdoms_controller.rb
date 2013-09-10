@@ -2,7 +2,7 @@ class WisdomsController < ApplicationController
   before_filter :require_user, :except => [:show, :index]
 
   def index
-    @wisdoms = Wisdom.all
+    @wisdoms = Wisdom.all(:order => "created_at DESC")
   end
 
   def show
@@ -19,6 +19,7 @@ class WisdomsController < ApplicationController
 
   def create
     @wisdom = Wisdom.new(wisdom_params)
+    @wisdom.user_id = current_user.id
     if @wisdom.save
       redirect_to @wisdom
     else

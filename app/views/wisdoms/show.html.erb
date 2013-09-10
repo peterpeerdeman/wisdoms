@@ -4,7 +4,7 @@
   <%= render @wisdom.comments %>
 </ul>
 
-<h3>new comment</h3>
-<%= render "comments/form" %> 
-
-<%= link_to "Back to index", wisdoms_path %>
+<% if current_user %>
+  <h3>new comment</h3>
+  <%= render "comments/form" %> 
+<% end %>

@@ -20,7 +20,7 @@
       <span class="icon-bar"></span>
     </button>
     <% else %>
-        <ul class="nav  pull-right">
+        <ul class="nav navbar-right pull-right">
           <li>
           <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
           </li>
@@ -43,12 +43,6 @@
           </li>
         </ul>
           <p class="navbar-text pull-right hidden-xs"><strong><%= current_user.name %></strong></p>
-        <% else %>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-          </li>
-        </ul>
         <% end %>
         </li>
       </ul>

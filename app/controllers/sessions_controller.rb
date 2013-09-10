@@ -11,6 +11,6 @@ class SessionsController < ApplicationController
   end
 
   def oauth_failure
-    puts 'something went wrong'
+    puts 'something went wrong in oauth'
   end
 end
