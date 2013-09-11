@@ -2,7 +2,7 @@
   <h4><%= User.find(comment.user_id).name %> said:</h4>
   <p><%= comment.body %></p>
   <small><%=localize(comment.created_at, :format => :long)%></small>
-  <% if current_user &&  comment.user_id == current_user.id %>
+  <% if (current_user &&  comment.user_id == current_user.id) || (current_user && current_user_admin) %>
     <%= link_to "x", [comment.wisdom, comment], method: :delete, data: {confirm:"are you sure?"}, :class=>"close" %></small>
   <% end %>
 </li>

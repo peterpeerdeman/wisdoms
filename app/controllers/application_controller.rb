@@ -4,17 +4,23 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
+  def current_user_admin
+    if current_user
+      return current_user.admin
+    end
+  end
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def require_user
-    unless current_user
+    unless current_user || current_user_admin
       flash[:notice] = "Please login!"
       redirect_to root_url
       return false
     end
   end
 
-  helper_method :current_user, :require_user
+  helper_method :current_user, :current_user_admin, :require_user
 end
