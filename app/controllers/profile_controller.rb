@@ -5,6 +5,7 @@ class ProfileController < ApplicationController
     @comments = @user.comments
     respond_to do |format|
       format.html #show
+      format.json { render :json => @wisdoms }
     end
   end
 end

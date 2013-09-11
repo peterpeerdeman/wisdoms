@@ -3,6 +3,10 @@ class WisdomsController < ApplicationController
 
   def index
     @wisdoms = Wisdom.all(:order => "created_at DESC")
+    respond_to do |format|
+      format.html #show
+      format.json { render :json => @wisdoms }
+    end
   end
 
   def show

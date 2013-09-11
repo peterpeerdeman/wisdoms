@@ -1,5 +1,15 @@
 class CommentsController < ApplicationController
-  before_filter :require_user
+  before_filter :require_user, :except => [:show, :index]
+
+  def index
+    @wisdom = Wisdom.find(params[:wisdom_id])
+    render :json => @wisdom.comments
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
+    render :json => @comment
+  end
 
   def create
     @wisdom = Wisdom.find(params[:wisdom_id])
