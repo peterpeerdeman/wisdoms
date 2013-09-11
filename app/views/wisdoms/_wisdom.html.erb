@@ -1,9 +1,18 @@
-<blockquote>
-  <p><%= wisdom.quote %></p>
-  <small><%= wisdom.author %></small>
-  <emph class='timestamp'><%= link_to localize(wisdom.created_at, :format => :long), wisdom %></emph>
+<div class="media">
+  <%= link_to image_tag(avatar_url(wisdom.user), :alt => "avatar", :class => "media-object"), root_url, :class => "pull-left" %>
+  <div class="media-body">
+    <blockquote>
+      <p>&ldquo;<%= wisdom.quote %>&rdquo;</p>
+      <small class="w-author"><%= wisdom.author %></small>
+    <span class="w-toolbox">
+      <emph class='w-timestamp'><%= link_to localize(wisdom.created_at, :format => :long), wisdom %></emph>
   <% if (current_user && wisdom.user_id == current_user.id) || (current_user && current_user_admin) %>
-    <%= link_to "edit", edit_wisdom_path(wisdom), :class=>"btn btn-default" %>
-    <%= link_to "x", wisdom_path(wisdom), method: :delete, data: { confirm: 'are yo0u sure' }, :class=>"close"%>
+    <%= link_to "", edit_wisdom_path(wisdom), :class=>"glyphicon glyphicon-edit" %>
+    <%= link_to "", wisdom_path(wisdom), method: :delete, data: { confirm: 'are you sure?' }, :class=>"glyphicon glyphicon-remove"%>
   <% end %>
-</blockquote>
+    </span>
+
+    </blockquote>
+  </div>
+
+</div>

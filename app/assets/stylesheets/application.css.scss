@@ -13,7 +13,7 @@
  */
 
 /* bootstrap overwrites */
-$font-size-base: 16px;
+$font-size-base: 15px;
 
 @import "twitter/bootstrap";
 
@@ -33,4 +33,29 @@ $font-size-base: 16px;
 
 h2 {
   text-align:center;
+}
+
+.form-group {
+  padding: 0 20px;
+}
+
+blockquote p {
+  font-size:2em;
+}
+
+.w-toolbox {
+  a, a:focus, a:visited {
+    color:#000; 
+  }
+  .w-timestamp {
+    text-decoration: underline;
+  }
+}
+
+.w-timestamp {
+  font-size: .8em;
+}
+
+.w-author {
+  font-size: 1.1em;
 }

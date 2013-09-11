@@ -1,23 +1,27 @@
-<%= form_for @wisdom do |f| %>
+<%= simple_form_for @wisdom, :html => { :class => 'form-horizontal'} do |f| %>
   <% if @wisdom.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@wisdom.errors.count, "error") %>:</h2>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@wisdom.errors.count, "error") %>:</h2>
       <ul>
-      <% @wisdom.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @wisdom.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-  <p>
-    <%= f.label :quote %><br>
-    <%= f.text_field :quote %>
-  </p>
-  <p>
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
-  </p>
-  <p>
-    <%= f.submit :class=>"btn btn-success" %>
-  </p>
-<% end %>
+  <div class="form-group">
+    <%= f.input :quote, 
+      :placeholder => "enter quote", 
+      :input_html => {:rows => 4, :class => "form-control"},
+      label: false %>
+    </div>
+    <div class="form-group">
+      <%= f.input :author, 
+        :placeholder => "enter author", 
+        :input_html => {:class => "form-control"},
+        label:false %>
+      </div>
+      <div class="form-group">
+        <%= f.button :submit, :class=>"btn btn-success btn-block" %>
+      </div>
+    <% end %>

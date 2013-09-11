@@ -22,5 +22,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :current_user, :current_user_admin, :require_user
+  def avatar_url(user)
+    if user.image
+      return user.image
+    else
+      gravatar_id = Digest::MD5.hexdigest(user.email)
+      "http://gravatar.com/avatar/#{gravatar_id}.png?s=50"
+    end
+  end
+  helper_method :current_user, :current_user_admin, :require_user, :avatar_url
 end

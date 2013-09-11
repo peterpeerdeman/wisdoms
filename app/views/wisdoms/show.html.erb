@@ -1,10 +1,13 @@
 <%= render partial:'wisdom', object: @wisdom %>
-<h3>comments</h3>
-<ul>
-  <%= render @wisdom.comments %>
-</ul>
+<h4>comments</h4>
+<% if @wisdom.comments.empty? %>
+  <p>no comments</p> 
+<% else %>
+  <ul>
+    <%= render @wisdom.comments %>
+  </ul>
+<% end %>
 
 <% if current_user %>
-  <h3>new comment</h3>
   <%= render "comments/form" %> 
 <% end %>

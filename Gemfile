@@ -40,6 +40,8 @@ end
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 
+gem 'simple_form', '>= 3.0.0.rc'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
