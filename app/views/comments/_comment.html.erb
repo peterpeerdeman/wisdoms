@@ -1,9 +1,9 @@
-<li>
+<li class="w-comment">
   <h4><%= User.find(comment.user_id).name %> said:</h4>
   <p><%= comment.body %></p>
-  <small><%=localize(comment.created_at, :format => :long)%></small>
-  <% if (current_user &&  comment.user_id == current_user.id) || (current_user && current_user_admin) %></small>
 <span class="w-toolbox">  
+  <small class="w-timestamp"><%= link_to(localize(comment.created_at, :format => :long), comment.wisdom)%></small>
+  <% if (current_user &&  comment.user_id == current_user.id) || (current_user && current_user_admin) %></small>
     <%= link_to "", [comment.wisdom, comment], method: :delete, data: {confirm:"are you sure?"}, :class=>"glyphicon glyphicon-remove" %>
 </span>
   <% end %>

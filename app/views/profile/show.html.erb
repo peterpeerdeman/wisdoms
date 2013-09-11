@@ -1,0 +1,10 @@
+<div class="w-profilebadge">
+  <%= image_tag(avatar_url(@user), :alt => "avatar", :class => "media-object") %>
+<h2><%= @user.name %></h2>
+<p>has posted <%= pluralize(@wisdoms.count, "wisdoms") %> and <%= pluralize(@comments.count, "comments") %></p>
+</div>
+<h3>wisdoms</h3>
+<%= render @wisdoms %>
+
+<h3>comments</h3>
+<%= render @comments %>

@@ -18,3 +18,7 @@
 // Include twitter's javascripts
 //= require twitter/bootstrap/alert
 //= require twitter/bootstrap/collapse
+
+if (!("ontouchstart" in document.documentElement)) {
+  document.documentElement.className += " no-touch";
+}
