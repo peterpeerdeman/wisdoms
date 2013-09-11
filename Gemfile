@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
+ruby "1.9.3"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -41,6 +44,8 @@ gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 
 gem 'simple_form', '>= 3.0.0.rc'
+
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
