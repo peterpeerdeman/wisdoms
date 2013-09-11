@@ -16,7 +16,11 @@
     </span>
       </p>
       <small class="w-author"><%= wisdom.author %></small>
-      <emph class='w-timestamp'><%= link_to localize(wisdom.created_at, :format => :long), wisdom %></emph>
+      <emph class='w-timestamp'>
+      <%= link_to wisdom do%>
+        Posted at <%=localize(wisdom.created_at, :format => :long) %>
+      <% end %>
+      </emph>
 
     </blockquote>
   </div>

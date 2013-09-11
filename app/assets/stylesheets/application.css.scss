@@ -13,9 +13,14 @@
  */
 
 /* bootstrap overwrites */
-$font-size-base: 15px;
+$font-size-base: 17px;
+$font-family-base: 'Open Sans Condensed';
+$navbar-inverse-link-color: #eaeaea;
 
 @import "twitter/bootstrap";
+.glyphicon {
+  font-size:90%;
+}
 
 .container {
   max-width:700px;
@@ -31,30 +36,35 @@ $font-size-base: 15px;
   }
 }
 
-h2 {
+.w-subtitle {
   text-align:center;
   margin:10px 0 30px 0;
+  font-size:2.2em;
 }
 
 .form-group {
   padding: 0 20px;
 }
 
-blockquote p {
-  font-size:2em;
-}
-
-.w-timestamp {
-  font-size: .8em;
-}
 
 .w-wisdom, .w-comment {
-  .w-timestamp {
-    text-decoration: underline;
+  blockquote p {
+    font-family:"Alice";
+    font-size:2em;
+    margin-bottom:5px;
   }
-  
+  .w-author {
+    font-family:"Alice";
+    font-size:1.5em;
+    margin-bottom:5px;
+  }
   a, a:focus, a:visited {
     color:#000; 
+  }
+  .w-timestamp a {
+    text-decoration: underline;
+    font-size: .8em;
+    color:#999;
   }
 }
 
