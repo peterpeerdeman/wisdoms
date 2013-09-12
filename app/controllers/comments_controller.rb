@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
   def create
     @wisdom = Wisdom.find(params[:wisdom_id])
-    @comment = @wisdom.comments.create(params[:comment].permit(:commenter, :body))
+    @comment = @wisdom.comments.create(params[:comment].permit(:body))
     @comment.user_id = current_user.id
     if @comment.save
       redirect_to @wisdom

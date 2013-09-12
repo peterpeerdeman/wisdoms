@@ -8,20 +8,19 @@ development:
   adapter: postgresql
   encoding: unicode
   database: wisdoms_development
-  pool: 5
-  username: myapp
-  password: 
+  username: wisdoms
+  password: wisdomspassword
+  host: localhost
 test:
   adapter: postgresql
   encoding: unicode
   database: wisdoms_test
-  pool: 5
-  username: myapp
-  password:
+  username: wisdoms
+  password: wisdomspassword
+  host: localhost
 production:
   adapter: postgresql
   encoding: unicode
   database: wisdoms_production
-  pool: 5
-  username: myapp
-  password:
+  username: wisdoms
+  password: wisdomspassword
