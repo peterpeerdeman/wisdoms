@@ -1,0 +1,2 @@
+rvm use 2.0.0-p247@arcade
+rvm rvmrc warning ignore /vagrant/code/.rvmrc

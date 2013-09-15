@@ -8,19 +8,22 @@ development:
   adapter: postgresql
   encoding: unicode
   database: wisdoms_development
-  username: wisdoms
-  password: wisdomspassword
+  username: vagrant
+  password: vagrant
   host: localhost
+  template: template0
 test:
   adapter: postgresql
   encoding: unicode
   database: wisdoms_test
-  username: wisdoms
-  password: wisdomspassword
+  username: vagrant
+  password: vagrant
   host: localhost
+  template: template0
 production:
   adapter: postgresql
   encoding: unicode
   database: wisdoms_production
-  username: wisdoms
-  password: wisdomspassword
+  username: vagrant
+  password: vagrant
+  template: template0
