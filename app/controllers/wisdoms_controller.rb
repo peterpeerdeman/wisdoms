@@ -40,7 +40,7 @@ class WisdomsController < ApplicationController
   end
 
   def update
-    @wisdom = Wisdom.find(params[:id])
+    @wisdom = Wisdom.friendly.find(params[:id])
     if @wisdom.update(params[:wisdom].permit(:quote, :author))
       redirect_to @wisdom
     else
@@ -49,13 +49,13 @@ class WisdomsController < ApplicationController
   end
 
   def destroy
-    @wisdom = Wisdom.find(params[:id])
+    @wisdom = Wisdom.friendly.find(params[:id])
     @wisdom.destroy
     redirect_to wisdoms_path
   end
 
   def edit
-    @wisdom = Wisdom.find(params[:id])
+    @wisdom = Wisdom.friendly.find(params[:id])
   end
 
   private

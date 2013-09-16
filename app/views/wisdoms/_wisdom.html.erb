@@ -5,7 +5,7 @@
     <p class="w-quote">&ldquo;<%= wisdom.quote %>&rdquo;
 
     <span class="w-toolbox">
-      <% if (current_user && wisdom.user_id == current_user.id && request.path == profile_path(current_user.id)) || (current_user && current_user_admin) %>
+      <% if (current_user && wisdom.user_id == current_user.id ) || (current_user && current_user_admin) %>
         <%= link_to edit_wisdom_path(wisdom) do %>
           <i class="glyphicon glyphicon-edit"></i>
         <% end %>
