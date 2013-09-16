@@ -1,3 +1,5 @@
+<% content_for :title, "Wisdoms - #{@wisdom.quote}" %>
+<% content_for :og_title, "#{@wisdom.quote}" %>
 <%= render partial:'wisdom', object: @wisdom %>
 <h4>comments</h4>
 <% if @wisdom.comments.empty? %>

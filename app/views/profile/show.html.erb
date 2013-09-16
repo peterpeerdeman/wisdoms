@@ -1,3 +1,4 @@
+<% content_for :title, "Wisdoms - #{@user.name}" %>
 <div class="w-profilebadge">
   <%= image_tag(avatar_url(@user), :alt => "avatar", :class => "media-object") %>
 <h2><%= @user.name %></h2>
