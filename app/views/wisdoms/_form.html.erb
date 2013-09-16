@@ -1,14 +1,4 @@
 <%= simple_form_for @wisdom, :html => { :class => 'form-horizontal'} do |f| %>
-  <% if @wisdom.errors.any? %>
-    <div id="errorExplanation">
-      <h2><%= pluralize(@wisdom.errors.count, "error") %>:</h2>
-      <ul>
-        <% @wisdom.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="form-group">
     <%= f.input :quote, 
       :placeholder => "enter quote", 

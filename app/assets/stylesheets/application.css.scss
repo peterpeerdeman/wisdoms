@@ -45,6 +45,9 @@ $grey: #999;
 
 .form-group {
   padding: 0 20px;
+  .help-inline {
+    color:orange;
+  }
 }
 
 .w-wisdom, .w-comment {
