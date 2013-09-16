@@ -1,28 +1,37 @@
 <article class="w-wisdom">
-  <%= link_to image_tag(avatar_url(wisdom.user), alt: "avatar", class: "media-object"), profile_path(wisdom.user.id), class: "w-avatar pull-left" %>
-  <div class="media-body">
-    <blockquote>
-      <p>&ldquo;<%= wisdom.quote %>&rdquo;
-      
+<%= link_to image_tag(avatar_url(wisdom.user), alt: "avatar", class: "media-object"), profile_path(wisdom.user.id), class: "w-avatar pull-left" %>
+<div class="media-body">
+  <blockquote>
+    <p class="w-quote">&ldquo;<%= wisdom.quote %>&rdquo;
+
     <span class="w-toolbox">
-  <% if (current_user && wisdom.user_id == current_user.id && request.path == profile_path(current_user.id)) || (current_user && current_user_admin) %>
-    <%= link_to edit_wisdom_path(wisdom) do %>
-      <i class="glyphicon glyphicon-edit"></i>
-    <% end %>
-    <%= link_to wisdom_path(wisdom), method: :delete, data: { confirm: 'are you sure?' } do %>
-      <i class="glyphicon glyphicon-remove"></i>
-    <% end %>
-  <% end %>
+      <% if (current_user && wisdom.user_id == current_user.id && request.path == profile_path(current_user.id)) || (current_user && current_user_admin) %>
+        <%= link_to edit_wisdom_path(wisdom) do %>
+          <i class="glyphicon glyphicon-edit"></i>
+        <% end %>
+        <%= link_to wisdom_path(wisdom), method: :delete, data: { confirm: 'are you sure?' } do %>
+          <i class="glyphicon glyphicon-remove"></i>
+        <% end %>
+      <% end %>
     </span>
-      </p>
-      <small class="w-author"><%= wisdom.author %></small>
-      <emph class='w-timestamp'>
+    </p>
+    <small class="w-author"><%= wisdom.author %></small>
+    <p class="w-metadata">
+    <emph class='w-timestamp'>
+    <%= link_to wisdom do%>
+      <%=localize(wisdom.created_at, :format => :long) %>
+      </emph>
+    <% end %>
+    <% unless wisdom.comments.empty? %>
+      -
+      <emph class='w-link-comments'>
       <%= link_to wisdom do%>
-        Posted at <%=localize(wisdom.created_at, :format => :long) %>
+        <%= pluralize(wisdom.comments.count, 'comment') %>
       <% end %>
       </emph>
-
-    </blockquote>
-  </div>
+    <% end %>
+    </p>
+  </blockquote>
+</div>
 
 </article>

@@ -16,6 +16,7 @@
 $font-size-base: 17px;
 $font-family-base: 'Open Sans Condensed';
 $navbar-inverse-link-color: #eaeaea;
+$grey: #999;
 
 @import "twitter/bootstrap";
 .glyphicon {
@@ -46,26 +47,29 @@ $navbar-inverse-link-color: #eaeaea;
   padding: 0 20px;
 }
 
-
 .w-wisdom, .w-comment {
-  blockquote p {
+  .w-quote {
     font-family:"Alice";
     font-size:2em;
     margin-bottom:5px;
   }
   .w-author {
     font-family:"Alice";
-    font-size:1.5em;
-    margin-bottom:5px;
+    font-size:1.8em;
+    margin:0 5px 0 -30px;
   }
   a, a:focus, a:visited {
     color:#000; 
   }
-  .w-timestamp a {
+  .w-timestamp a, .w-link-comments a {
     text-decoration: underline;
-    font-size: .8em;
-    color:#999;
+    font-size: .7em;
+    color:$grey;
   }
+}
+
+.w-metadata {
+    color:$grey;
 }
 
 .w-wisdom {
@@ -115,4 +119,9 @@ $navbar-inverse-link-color: #eaeaea;
   em {
     font-style:normal;
   }
+}
+
+.w-load-more-wisdoms {
+    display:block;
+    text-align: center;
 }
