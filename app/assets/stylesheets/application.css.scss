@@ -66,13 +66,16 @@ $grey: #999;
   }
   .w-timestamp a, .w-link-comments a {
     text-decoration: underline;
-    font-size: .7em;
+    font-size: .8em;
     color:$grey;
   }
 }
 
 .w-metadata {
     color:$grey;
+    .fb-like {
+      top:5px;
+    }
 }
 
 .w-wisdom {
