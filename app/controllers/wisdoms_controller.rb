@@ -2,10 +2,18 @@ class WisdomsController < ApplicationController
   before_filter :require_user, :except => [:show, :index]
 
   def index
-    @wisdoms = Wisdom.all(:order => "created_at DESC")
+    @wisdoms = Wisdom.page(params[:page]).order("created_at DESC")
     respond_to do |format|
       format.html #show
-      format.json { render :json => @wisdoms }
+      format.js #show js template
+      format.json { 
+        render :json => {
+          :current_page => @wisdoms.current_page,
+          :per_page => @wisdoms.per_page,
+          :total_entries => @wisdoms.total_entries,
+          :entries => @wisdoms
+        }
+      }
     end
   end
 

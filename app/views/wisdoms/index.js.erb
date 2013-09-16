@@ -1,0 +1,6 @@
+$('.w-wisdoms').append('<%= escape_javascript(render partial: "wisdoms", :locals => { :wisdoms => @wisdoms })%>');
+$('a.w-load-more-wisdoms').attr('href', '<%=wisdoms_path page: @wisdoms.next_page%>');
+<% unless @wisdoms.next_page %>
+  $('a.w-load-more-wisdoms').remove();
+<% end %>
+

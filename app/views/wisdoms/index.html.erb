@@ -1,6 +1,5 @@
 <%= render partial: 'layouts/logo' %>
-<section>
-  <% @wisdoms.each do |wisdom| %>
-  <%= render partial:'wisdom', object: wisdom %>
-  <% end %>
+<section class="w-wisdoms">
+<%= render partial: 'wisdoms', :locals => {:wisdoms => @wisdoms} %>
 </section>
+<%=link_to 'Load More Wisdoms', wisdoms_path(:page => @wisdoms.next_page), :class => 'w-load-more-wisdoms', :remote => true if @wisdoms.next_page %>

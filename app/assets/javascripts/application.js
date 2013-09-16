@@ -19,6 +19,8 @@
 //= require twitter/bootstrap/alert
 //= require twitter/bootstrap/collapse
 
+//= require jquery.inview.min.js
+
 if (!("ontouchstart" in document.documentElement)) {
   document.documentElement.className += " no-touch";
 }

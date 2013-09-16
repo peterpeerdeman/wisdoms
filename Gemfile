@@ -45,6 +45,8 @@ gem 'simple_form', '>= 3.0.0.rc'
 
 gem 'rails_12factor', group: :production
 
+gem 'will_paginate', git: 'https://github.com/mislav/will_paginate.git'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

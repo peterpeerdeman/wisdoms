@@ -5,4 +5,5 @@ class Wisdom < ActiveRecord::Base
                     length: { minimum: 2 }
   validates :author, presence:true,
                     length: { minimum: 2 }
+  self.per_page = 3 
 end
