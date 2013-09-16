@@ -2,7 +2,7 @@ class WisdomsController < ApplicationController
   before_filter :require_user, :except => [:show, :index]
 
   def index
-    @wisdoms = Wisdom.page(params[:page]).order("created_at DESC")
+    @wisdoms = Wisdom.friendly.page(params[:page]).order("created_at DESC")
     respond_to do |format|
       format.html #show
       format.js #show js template
@@ -18,7 +18,7 @@ class WisdomsController < ApplicationController
   end
 
   def show
-    @wisdom = Wisdom.find(params[:id])
+    @wisdom = Wisdom.friendly.find(params[:id])
     respond_to do |format|
       format.html #show
       format.json { render :json => @wisdom }

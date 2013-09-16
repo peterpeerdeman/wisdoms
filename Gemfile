@@ -47,6 +47,8 @@ gem 'rails_12factor', group: :production
 
 gem 'will_paginate', git: 'https://github.com/mislav/will_paginate.git'
 
+gem 'friendly_id', '5.0.0.rc2', git: 'https://github.com/norman/friendly_id.git'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
