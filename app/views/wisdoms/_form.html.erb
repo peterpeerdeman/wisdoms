@@ -1,17 +1,21 @@
 <%= simple_form_for @wisdom, :html => { :class => 'form-horizontal'} do |f| %>
   <div class="form-group">
-    <%= f.input :quote, 
-      :placeholder => "enter quote", 
-      :input_html => {:rows => 4, :class => "form-control"},
-      label: false %>
-    </div>
-    <div class="form-group">
-      <%= f.input :author, 
-        :placeholder => "enter author", 
-        :input_html => {:class => "form-control"},
-        label:false %>
-      </div>
-      <div class="form-group">
-        <%= f.button :submit, :class=>"btn btn-success btn-block" %>
-      </div>
-    <% end %>
+  <%= f.input :quote, 
+    :placeholder => "enter quote", 
+    :input_html => {:rows => 4, :class => "form-control"},
+    label: false %>
+  </div>
+  <div class="form-group">
+  <%= f.input :author, 
+    :placeholder => "enter author", 
+    :input_html => {:class => "form-control"},
+    label:false %>
+  </div>
+  <div class="form-group">
+    <%= f.input :share_to_facebook, :as => :boolean, 
+      :input_html => { :checked => "unchecked" }%>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, :class=>"btn btn-success btn-block" %>
+  </div>
+<% end %>

@@ -4,6 +4,9 @@ class Wisdom < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments
+
+  attr_accessor :share_to_facebook
+
   validates :quote, presence:true,
                     length: { minimum: 2 }
   validates :author, presence:true,

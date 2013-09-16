@@ -33,6 +33,7 @@ class WisdomsController < ApplicationController
     @wisdom = Wisdom.new(wisdom_params)
     @wisdom.user_id = current_user.id
     if @wisdom.save
+      checkAndShareToFacebook(@wisdom, wisdom_params)
       redirect_to @wisdom
     else
       render 'new'
@@ -60,7 +61,14 @@ class WisdomsController < ApplicationController
 
   private
   def wisdom_params
-    params.require(:wisdom).permit(:quote, :author)
+    params.require(:wisdom).permit(:quote, :author, :share_to_facebook)
+  end
+
+  def checkAndShareToFacebook(wisdom, share) 
+    if share == 1
+      logger.debug 'SHARE!##########'
+      #facebookshare here
+    end
   end
 
 end
