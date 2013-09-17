@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def oauth_failure
-    puts 'something went wrong in oauth'
+    logger.debug 'something went wrong in oauth'
+    redirect_to root_url
   end
 end

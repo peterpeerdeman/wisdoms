@@ -33,7 +33,7 @@ class WisdomsController < ApplicationController
     @wisdom = Wisdom.new(wisdom_params)
     @wisdom.user_id = current_user.id
     if @wisdom.save
-      checkAndShareToFacebook(@wisdom, wisdom_params)
+      checkAndShareToFacebook(@wisdom, wisdom_params[:share_to_facebook])
       redirect_to @wisdom
     else
       render 'new'
@@ -64,11 +64,19 @@ class WisdomsController < ApplicationController
     params.require(:wisdom).permit(:quote, :author, :share_to_facebook)
   end
 
-  def checkAndShareToFacebook(wisdom, share) 
-    if share == 1
-      logger.debug 'SHARE!##########'
-      #facebookshare here
+  def checkAndShareToFacebook(wisdom, shareCheckbox) 
+    if shareCheckbox == '1'
+      @graph = Koala::Facebook::API.new(current_user.oauth_token)
+      begin
+        @result = @graph.put_connections('me', 'og.posts', :object => URI.join(request.original_url,url_for(wisdom)))
+        logger.debug @result.inspect
+      rescue Koala::Facebook::ClientError => e
+        logger.debug '///exception while trying to post to facebook'
+        logger.debug e.message
+        logger.debug e.fb_error_message
+        logger.debug '///'
+        return
+      end
     end
   end
-
 end
