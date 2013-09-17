@@ -14,6 +14,7 @@
     <meta property="og:type" content="object">
     <meta property="og:url" content="<%= request.original_url %>">
     <meta property="og:title" content="<%= content_for?(:og_title) ? yield(:og_title) : "Wisdoms" %>" >
+    <meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : "Wisdoms - Log and share your wisdoms with the world" %>">
     <meta property="og:image" content="<%= image_url('app-icon-1000.png')%>">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1000">
