@@ -68,8 +68,10 @@ class WisdomsController < ApplicationController
     if shareCheckbox == '1'
       @graph = Koala::Facebook::API.new(current_user.oauth_token)
       begin
-        @result = @graph.put_connections('me', 'og.posts', :object => URI.join(request.original_url,url_for(wisdom)))
-        logger.debug @result.inspect
+        Thread.new {
+          @result = @graph.put_connections('me', 'og.posts', :object => URI.join(request.original_url,url_for(wisdom)))
+          logger.debug @result.inspect
+        }
       rescue Koala::Facebook::ClientError => e
         logger.debug '///exception while trying to post to facebook'
         logger.debug e.message
