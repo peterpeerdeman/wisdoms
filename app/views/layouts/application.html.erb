@@ -35,57 +35,63 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-    
-    <% if current_user %>
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <% else %>
-        <div class="pull-right">
-          <%= link_to "Sign in with Facebook", "/auth/facebook", class: "navbar-link navbar-brand" %>
-        </div>
-    <% end %>
-    <a class="navbar-brand" href="/">W</a>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        <% if current_user %>
-          <li>
-            <%= link_to new_wisdom_path do %>
-              <i class="glyphicon glyphicon-plus-sign" ></i>&nbsp;new wisdom
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-        <% if current_user %>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-          <%= link_to  profile_path(current_user.slug), :class => "navbar-link" do %>
-           <%=current_user.name %>        
+    <div id="wrap">
+        <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="navbar-header">
+
+          <% if current_user %>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          <% else %>
+            <div class="pull-right">
+              <%= link_to "Sign in with Facebook", "/auth/facebook", class: "navbar-link navbar-brand" %>
+            </div>
           <% end %>
-          </li>
-          <li>
-          <%= link_to "Sign out", signout_path, :class => "navbar-link" %>
-          </li>
-        </ul>
-        <% end %>
-    </div>
-    </nav>
-    <main role="main">
+          <a class="navbar-brand" href="/">W</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <% if current_user %>
+              <li>
+              <%= link_to new_wisdom_path do %>
+                <i class="glyphicon glyphicon-plus-sign" ></i>&nbsp;new wisdom
+              <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <% if current_user %>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+              <%= link_to  profile_path(current_user.slug), :class => "navbar-link" do %>
+                <%=current_user.name %>        
+              <% end %>
+              </li>
+              <li>
+              <%= link_to "Sign out", signout_path, :class => "navbar-link" %>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+        </nav>
+      <div class="container">
+        <main role="main">
+        <div class="content">
+          <%= render 'layouts/messages' %>
+          <%= yield %>
+        </div>
+        </main>
+      </div> <!-- /container --> 
+      <div id="push"></div>
+    </div> <!-- /#wrap -->
+    <div id="footer">
     <div class="container">
-      <div class="content">
-            <%= render 'layouts/messages' %>
-            <%= yield %>
-        <footer>
-        </footer>
-      </div>
+      <small>wisdoms was created by <a href="http://peterpeerdeman.nl">@peterpeerdeman</a></small>
     </div>
-    </main>
+    </div>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
@@ -94,17 +100,17 @@
       js = d.createElement(s); js.id = id;
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<%=ENV['WISDOMS_FB_APP_ID']%>";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+      }(document, 'script', 'facebook-jssdk'));</script>
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', '<%=ENV['WISDOMS_ANALYTICS_ID']%>', '<%=ENV['WISDOMS_ANALYTICS_HOST']%>');
-        ga('send', 'pageview');
+      ga('create', '<%=ENV['WISDOMS_ANALYTICS_ID']%>', '<%=ENV['WISDOMS_ANALYTICS_HOST']%>');
+      ga('send', 'pageview');
 
     </script>
 
   </body>
-  </html>
+</html>

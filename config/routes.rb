@@ -4,6 +4,9 @@ Blog::Application.routes.draw do
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/oauth_failure', to: redirect('/'), via: [:get, :post]
+
+  get 'about', to: 'pages#about'
+
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   resources :wisdoms do

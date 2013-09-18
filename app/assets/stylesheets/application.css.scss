@@ -19,14 +19,49 @@ $navbar-inverse-link-color: #eaeaea;
 $grey: #999;
 
 @import "twitter/bootstrap";
+
+/* FIXED FOOTER */
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#f0f0f0;
+
+  text-align:center;
+  .container {
+    padding-top:0;
+  }
+  small, a {
+   color:$grey; 
+     
+  }
+}
+
+#push {
+  height: 30px;
+}
+
+/* BOOTSTRAP OVERRIDES */
 .glyphicon {
   font-size:90%;
 }
 
 .container {
   max-width:700px;
+  padding-top: 60px;
 }
 
+.form-group {
+  padding: 0 20px;
+  .help-inline {
+    color:orange;
+  }
+}
+
+
+/* WISDOMS COMPONENTS*/
 .w-logo {
   padding:0;
   a {
@@ -42,14 +77,6 @@ $grey: #999;
   margin:10px 0 30px 0;
   font-size:2.2em;
 }
-
-.form-group {
-  padding: 0 20px;
-  .help-inline {
-    color:orange;
-  }
-}
-
 .w-wisdom, .w-comment {
   .w-quote {
     font-family:"Alice";
@@ -89,18 +116,6 @@ $grey: #999;
   }
 }
 
-.no-touch {
-  .w-toolbox {
-    display:none;
-  }
-  .w-wisdom:hover .w-toolbox {
-    display:inline;
-  }
-  .w-comment:hover .w-toolbox {
-    display:inline;
-  }
-}
-
 .w-avatar {
   margin: 30.5px 21px 0 0;
   img {
@@ -130,4 +145,22 @@ $grey: #999;
 .w-load-more-wisdoms {
     display:block;
     text-align: center;
+}
+
+.w-about {
+  margin-top:40px;
+  text-align:center;
+}
+
+/* NO TOUCH FUNCTIONALITY */
+.no-touch {
+  .w-toolbox {
+    display:none;
+  }
+  .w-wisdom:hover .w-toolbox {
+    display:inline;
+  }
+  .w-comment:hover .w-toolbox {
+    display:inline;
+  }
 }
