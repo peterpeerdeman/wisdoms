@@ -6,6 +6,8 @@ Blog::Application.routes.draw do
   match 'auth/oauth_failure', to: redirect('/'), via: [:get, :post]
 
   get 'about', to: 'pages#about'
+  get 'terms', to: 'pages#terms'
+  get 'privacy-policy', to: 'pages#privacy-policy'
 
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
