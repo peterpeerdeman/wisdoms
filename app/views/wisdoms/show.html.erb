@@ -1,5 +1,6 @@
 <% content_for :title, "Wisdoms - #{@wisdom.quote}" %>
 <% content_for :og_title, "#{@wisdom.quote} - #{@wisdom.author}" %>
+<% content_for :og_type, "wisdoms-nl:wisdom" %>
 <%= render partial:'wisdom', object: @wisdom %>
 <div class="fb-comments" data-href="<%= request.original_url %>"></div>
 

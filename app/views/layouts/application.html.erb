@@ -11,7 +11,7 @@
     <meta name="author" content="PeterPeerdeman.nl">
 
     <meta property="fb:app_id" content="<%=ENV['WISDOMS_FB_APP_ID']%>"> 
-    <meta property="og:type" content="object">
+    <meta property="og:type" content="<%= content_for?(:og_type) ? yield(:og_type) : "site" %>">
     <meta property="og:url" content="<%= request.original_url %>">
     <meta property="og:title" content="<%= content_for?(:og_title) ? yield(:og_title) : "Wisdoms" %>" >
     <meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : "Wisdoms - Log and share your wisdoms with the world" %>">
