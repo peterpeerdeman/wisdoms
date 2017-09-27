@@ -40,8 +40,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'omniauth'
-gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth', '1.2.2'
+gem 'omniauth-facebook', '4.0.0'
 
 gem 'simple_form', '>= 3.0.0.rc'
 
